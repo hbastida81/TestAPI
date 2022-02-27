@@ -1,14 +1,18 @@
 # TestAPI
-Implementar un CRUD con Net Core Web Api en el cual se puedan Agregar nuevas actividades, Re-agendar, Cancelar y Listar las actividades
+Build the following case. Keep in mind REST API approach.
+- Product service. Takes care of executing the CRUD of the Products.
+o Validate duplicate SKUs.
+o Validate stock and send alert for a new order.
+o The execution will make using Test Client for API.
+- Order service. Takes care of processing restaurant's new orders.
+o Manage five status.
+▪ Pending
+▪ In Process
+▪ Completed
+▪ Delivered
+▪ Canceled
 
-
-
-Install Image Postgres
-
-`docker pull postgres`
-
-Instalar la imagen
-
-`docker run --name postgresql-container -p 5432:5432 -e POSTGRES_PASSWORD=admin*01 -d postgres`
+Web interface to process all restaurant’s orders.
+o Takes care of show new orders and manage their status.
 
 
