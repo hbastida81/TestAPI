@@ -17,10 +17,11 @@ o Takes care of show new orders and manage their status.
 
 
 
-1.- Abrir solucion TestAPI.sln
+1.- Abrir solucion TestAPI.sln.
+
 2.- Ejecutar proyecto TestAPI
 
-notas: ya que se esta ejecutando el proyecto TestAPI, podemos realizar pruebas en swagger o si lo prefiere con Postman.
+Notas: Ya que se esta ejecutando el proyecto TestAPI, podemos realizar pruebas en swagger o si lo prefiere con Postman.
 Para ejecutar el front-end vamos ala carpeta  consumir-api-vue-main y abrimos el archivo index.html en el explorador donde se ejecuta la solucion TestAPI.
 
 
