@@ -33,17 +33,31 @@ namespace TestAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers()
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+                    options.JsonSerializerOptions.PropertyNamingPolicy = null;
+                });
             services.AddSingleton<IConnection, Connection>();
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddScoped<IActivityRepository, ActivityRepostirory>();
             services.AddScoped<IActivityServices , ActivityService>();
+            //Demás código debe estar antes de app.UseRouting, app.useMVc
+            services.AddCors();
+            //Se agrega en generador de Swagger
             services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            var urlAceptadas = Configuration
+                       .GetSection("AllowedHosts").Value.Split(",");
+            app.UseCors(builder => builder.WithOrigins(urlAceptadas)
+                                  .AllowAnyHeader()
+                                  .AllowAnyMethod()
+                                  );
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

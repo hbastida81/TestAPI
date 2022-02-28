@@ -29,8 +29,8 @@ namespace Test.DataAccess
         }
 
         private DataAccess _DataAccess;
-        private List<Activity> PersonasList;
-        private string PersonasData;
+        private List<Activity> OrderList;
+        private string OrderData;
 
 
 
@@ -44,7 +44,7 @@ namespace Test.DataAccess
             if (Exist(entity.Activity_Id))
             {
                 //Si existe solo actualizo
-                var p = this.PersonasList.First(x => x.Activity_Id == entity.Activity_Id);
+                var p = this.OrderList.First(x => x.Activity_Id == entity.Activity_Id);
                 p.Activity_Status = entity.Activity_Status;
 
             }
@@ -61,12 +61,12 @@ namespace Test.DataAccess
             if (Exist(id))
             {
                 //Si existe 
-                entity = this.PersonasList.FirstOrDefault(x => x.Activity_Id == id);
+                entity = this.OrderList.FirstOrDefault(x => x.Activity_Id == id);
 
             }
 
             Save();
-            return new Activity { Activity_Id = entity.Activity_Id, Activity_Status = entity.Activity_Status };
+            return new Activity { Activity_Id = entity.Activity_Id, Activity_Status = entity.Activity_Status, Activity_Title = entity.Activity_Title, Activity_Product = entity.Activity_Product };
 
         }
         public async Task<Activity> Add(Activity entity)
@@ -78,23 +78,23 @@ namespace Test.DataAccess
             if (Exist(entity.Activity_Id))
             {
                 //Si existe solo actualizo
-                var p = this.PersonasList.First(x => x.Activity_Id == entity.Activity_Id);
+                var p = this.OrderList.First(x => x.Activity_Id == entity.Activity_Id);
                 p.Activity_Title = entity.Activity_Title;
 
             }
             else
             {
                 //Obtengo el id nuevo
-                if (PersonasList.Count > 0)
+                if (OrderList.Count > 0)
                 {
-                    id = this.PersonasList.Max(x => x.Activity_Id) + 1;
+                    id = this.OrderList.Max(x => x.Activity_Id) + 1;
                 }
                 entity.Activity_Id = id;
                 //Si no existte inserta uno nuevo
-                this.PersonasList.Add(entity);
+                this.OrderList.Add(entity);
             }
 
-            //Agergo la persona nueva a la lista de personas
+            //Se agrega registro a la lista de ordenes
             Save();
             return new Activity { Activity_Id = id };
 
@@ -102,17 +102,17 @@ namespace Test.DataAccess
         private void Save()
         {
             //Convierto los datos a string 
-            this.PersonasData = JsonConvert.SerializeObject(this.PersonasList);
+            this.OrderData = JsonConvert.SerializeObject(this.OrderList);
             //guardo los datos en el archivo
-            File.WriteAllText(path: Path, this.PersonasData);
+            File.WriteAllText(path: Path, this.OrderData);
            
         }
         private bool Exist(int id)
         {
             Activity persona = new Activity();
-            if (PersonasList.Count > 0)
+            if (OrderList.Count > 0)
             {
-                persona = this.PersonasList.FirstOrDefault(x => x.Activity_Id == id);
+                persona = this.OrderList.FirstOrDefault(x => x.Activity_Id == id);
             }
             return persona?.Activity_Id > 0;
         }
@@ -120,17 +120,17 @@ namespace Test.DataAccess
         {
              var _DataAccess = new DataAccess("PedidosDB.dat");
             string contenido = "";
-            this.PersonasData = "";
+            this.OrderData = "";
             using (StreamReader Osr = File.OpenText(path: Path))
             {
                 string s = "";
                 while ((s= Osr.ReadLine())!=null) {
-                    this.PersonasData += s;
+                    this.OrderData += s;
 
                 }
             }
-                //Convierto el archivo a una lista de personas, si es que tiene datos
-                this.PersonasList = this.PersonasData?.Length > 0 ? JsonConvert.DeserializeObject<List<Activity>>(this.PersonasData) : new List<Activity>();
+                //Convierto el archivo a una lista, si es que tiene datos
+                this.OrderList = this.OrderData?.Length > 0 ? JsonConvert.DeserializeObject<List<Activity>>(this.OrderData) : new List<Activity>();
         }
 		
 
@@ -138,8 +138,8 @@ namespace Test.DataAccess
 		{
             Read();
 
-            return this.PersonasList;
+            return this.OrderList;
         }
 
-	}
+    }
 }

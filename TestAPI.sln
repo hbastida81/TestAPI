@@ -1,17 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.1.32127.271
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.API", "TestAPI\Test.API.csproj", "{B1CA4CB2-A684-4D69-8756-A3D1B1088213}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.API", "TestAPI\Test.API.csproj", "{B1CA4CB2-A684-4D69-8756-A3D1B1088213}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.DataAccess", "Test.Data\Test.DataAccess.csproj", "{A38E72C6-0D00-416C-8E09-42F3E2C5F13A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.DataAccess", "Test.Data\Test.DataAccess.csproj", "{A38E72C6-0D00-416C-8E09-42F3E2C5F13A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.BusinessLogic", "Test.Business\Test.BusinessLogic.csproj", "{26BE07BF-33DB-4225-8939-E7490B57BCC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.BusinessLogic", "Test.Business\Test.BusinessLogic.csproj", "{26BE07BF-33DB-4225-8939-E7490B57BCC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Entities", "Test.Entities\Test.Entities.csproj", "{EDCD7878-52A8-44EA-B04E-E77C7CD99D0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Entities", "Test.Entities\Test.Entities.csproj", "{EDCD7878-52A8-44EA-B04E-E77C7CD99D0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Interfaces", "Test.Interfaces\Test.Interfaces.csproj", "{4FC6AB68-7FF3-409C-A571-AEB1BF15779C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Interfaces", "Test.Interfaces\Test.Interfaces.csproj", "{4FC6AB68-7FF3-409C-A571-AEB1BF15779C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

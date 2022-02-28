@@ -97,80 +97,80 @@ namespace TestAPI.Controllers
             }
         }
 
-        ///// <summary>
-        ///// EndPoint que permite cancelar actividad
-        ///// </summary>
-        ///// <param name="entity"></param>
-        ///// <returns></returns>
-        //[HttpDelete]
-        //[Route("cancel")]
-        //public async Task<ActionResult<Test.Entities.Activity>> Cancel(Test.Entities.Activity entity)
-        //{
-        //    Test.Entities.Activity response = null;
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            response = await this.service.Cancel(entity);
-        //        }
-        //        return Ok(response);
+		///// <summary>
+		///// EndPoint que permite cancelar actividad
+		///// </summary>
+		///// <param name="entity"></param>
+		///// <returns></returns>
+		//[HttpDelete]
+		//[Route("cancel")]
+		//public async Task<ActionResult<Test.Entities.Activity>> Cancel(Test.Entities.Activity entity)
+		//{
+		//    Test.Entities.Activity response = null;
+		//    try
+		//    {
+		//        if (ModelState.IsValid)
+		//        {
+		//            response = await this.service.Cancel(entity);
+		//        }
+		//        return Ok(response);
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(500, new { status = 500, errors = ex.Message });
-        //    }
-        //}
-
-
-        ///// <summary>
-        ///// EndPoint que permite finalizar una actividad
-        ///// </summary>
-        ///// <param name="entity"></param>
-        ///// <returns></returns>
-        //[HttpPut]
-        //[Route("terminate")]
-        //public async Task<ActionResult<Test.Entities.Activity>> Terminate(Test.Entities.Activity entity)
-        //{
-        //    Test.Entities.Activity response = null;
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            response = await this.service.Terminate(entity);
-        //        }
-        //        return Ok(response);
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(500, new { status = 500, errors = ex.Message });
-        //    }
-        //}
+		//    }
+		//    catch (Exception ex)
+		//    {
+		//        return StatusCode(500, new { status = 500, errors = ex.Message });
+		//    }
+		//}
 
 
+		///// <summary>
+		///// EndPoint que permite finalizar una actividad
+		///// </summary>
+		///// <param name="entity"></param>
+		///// <returns></returns>
+		//[HttpPut]
+		//[Route("terminate")]
+		//public async Task<ActionResult<Test.Entities.Activity>> Terminate(Test.Entities.Activity entity)
+		//{
+		//    Test.Entities.Activity response = null;
+		//    try
+		//    {
+		//        if (ModelState.IsValid)
+		//        {
+		//            response = await this.service.Terminate(entity);
+		//        }
+		//        return Ok(response);
+
+		//    }
+		//    catch (Exception ex)
+		//    {
+		//        return StatusCode(500, new { status = 500, errors = ex.Message });
+		//    }
+		//}
 
 
-        ///// <summary>
-        ///// EndPoint que retorna el listado de los registros existentes
-        ///// </summary>
-        ///// <returns></returns>
-        //[HttpPost]
-        //[Route("getbyfilters")]
-        //public async Task<ActionResult<IEnumerable<Test.Entities.Activity>>> GetByFilters(Test.Entities.Parameters parameters)
-        //{
-        //    IEnumerable<Test.Entities.Activity> response = null;
-        //    try
-        //    {
-        //        response = await this.service.GetByFilters(parameters);
-        //        return Ok(response);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(500, new { error = ex.Message });
-        //    }
-        //}
 
 
-    }
+		/// <summary>
+		/// EndPoint que retorna el listado de los registros existentes
+		/// </summary>
+		/// <returns></returns>
+		[HttpGet]
+		[Route("getbyid")]
+		public async Task<ActionResult<Test.Entities.Activity>> GetById(int id)
+		{
+			Test.Entities.Activity response = null;
+			try
+			{
+				response = await this.service.GetById(id);
+				return Ok(response);
+			}
+			catch (Exception ex)
+			{
+				return StatusCode(500, new { error = ex.Message });
+			}
+		}
+
+
+	}
 }
