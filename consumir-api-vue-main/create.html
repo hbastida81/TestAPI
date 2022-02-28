@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create new Order Consuming API with Vue</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<nav class="navbar navbar-expand-md navbar-dark bg-success fixed-top">
+    <a class="navbar-brand" href="index.html" >
+        <img  style="max-height: 50px" src="img/ia-interactive.png" loading="lazy">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" id="botonMenu"
+        aria-label="Mostrar u ocultar menú">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" href="index.html">
+                <a class="nav-link" href="get.html">Orders GetAll <i class="fa fa-circle"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="create.html">New Order&nbsp;<i class="fa fa-plus-circle"></i></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<body>
+    <div id="app" class="container-fluid">
+        <div class="row">
+            <div class="col-6">
+                <h2>New Order</h2>
+                <div class="form-group">
+                    <label for="Id">Id:</label>
+                    <input id="Id" v-model="activity.Id" placeholder="number of order" type="Number Order" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="Activity_Title">Title:</label>
+                    <input id="Activity_Title" v-model="activity.Activity_Title" placeholder="Name of Order" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="Activity_Product">Product:</label>
+                    <input id="Activity_Product" v-model="activity.Activity_Product" placeholder="Name of Product" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="Activity_Status">Status:</label>
+                    <input id="Activity_Status" v-model="activity.Activity_Status" placeholder="Status Order" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <button @click="save()" class="btn btn-success">Save</button>
+                    &nbsp;
+                    <a href="get.html" class="btn btn-info">Go back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="px-2 py-2 fixed-bottom bg-dark">
+        <span class="text-muted">REST API consume with Vue and JavaScript by
+            <a class="text-white">Ing. Hector Bastida Murrieta</a>
+        </span>
+    </footer>
+</body>
+
+<script src="js/menu.js"></script>
+<script src="js/vue.min.js"></script>
+<script src="js/vue-toasted.min.js"></script>
+<script src="js/create.js"></script>
+
+</html>

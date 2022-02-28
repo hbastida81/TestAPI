@@ -1,0 +1,77 @@
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Orders - Consuming API with Vue</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<nav class="navbar navbar-expand-md navbar-dark bg-success fixed-top">
+    <a class="navbar-brand"  href="index.html">
+        <img class="img-fluid" style="max-height: 50px" src="img/ia-interactive.png" loading="lazy">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" id="botonMenu"
+        aria-label="Mostrar u ocultar menú">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="get.html">Orders GetAll <i class="fa fa-circle"></i></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<body>
+    <div id="app" class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <a href="create.html" class="btn btn-success mb-2"><i class="fa fa-plus"></i>&nbsp;New Order</a>
+                <div class="table-responsive">
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Order_Name</th>
+                                <th>Product</th>
+                                <th>Status</th>
+                                <th>Edit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="data in all_orders">
+                                <td>{{data.Activity_Id}}</td>
+                                <td>{{data.Activity_Product}}</td>
+                                <td>{{data.Activity_Title}}</td>
+                                <td>{{data.Activity_Status}}</td>
+                                <td>
+                                    <button @click="edit(data)" class="btn btn-warning">
+                                        <i class="fa fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="px-2 py-2 fixed-bottom bg-dark">
+        <span class="text-muted">REST API consume with Vue and JavaScript by
+            <a class="text-white">Ing. Hector Bastida Murrieta</a>
+        </span>
+    </footer>
+</body>
+
+<script src="js/menu.js"></script>
+<script src="js/vue.min.js"></script>
+<script src="js/vue-toasted.min.js"></script>
+<script src="js/sweetalert2.min.js"></script>
+<script src="js/get.js"></script>
+
+</html>
